@@ -2,7 +2,9 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title></title>
+  <title></title> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/locale/ja.js"></script>
   <link href="reset.css" rel="stylesheet" type="text/css"></link>
   <style>
     body {
@@ -27,6 +29,10 @@
       background-image: url(ofuro_hinoki.png);
       background-color: #efe;
     }
+    .log {
+      height: 200px;
+      overflow: hidden;
+    }
   </style>
 </head>
 <body>
@@ -43,7 +49,11 @@
     document.querySelectorAll('.foot_button').forEach(function (el) {
       el.addEventListener('click', function () {
         var log = document.querySelector('.log');
-        log.innerHTML = log.innerHTML + '<div>' + el.className + '</div>';
+        var now = new Date();
+        // var beforeDate = moment("20170817", "YYYY-MM-DD"); // 第一引数：日時、第二引数：フォーマット形式
+        var afterDate = moment().format('YYYY MMMM Do hh:mm:ss');
+        var time = now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds();
+        log.innerHTML = '<div>' + afterDate + " " + el.className + '</div>' + log.innerHTML;
       });
     });
   </script>
