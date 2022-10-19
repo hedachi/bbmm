@@ -3,6 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <title></title> 
+  <script
+  src="https://code.jquery.com/jquery-3.6.1.min.js"
+  integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+  crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/locale/ja.js"></script>
   <link href="reset.css" rel="stylesheet" type="text/css"></link>
@@ -46,6 +50,8 @@
   <div class="foot_button ohuro">
   </div>
   <script>
+    
+    /*
     document.querySelectorAll('.foot_button').forEach(function (el) {
       el.addEventListener('click', function () {
         var log = document.querySelector('.log');
@@ -54,6 +60,16 @@
         var afterDate = moment().format('YYYY MMMM Do hh:mm:ss');
         var time = now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds();
         log.innerHTML = '<div>' + afterDate + " " + el.className + '</div>' + log.innerHTML;
+      });
+    });
+    */
+    $(function () {
+      $('.foot_button').on('click', function () {
+        var log = $('.log');
+        var now = new Date();
+        var afterDate = moment().format('YYYY MMMM Do hh:mm:ss');
+        var time = now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds();
+        log.html('<div>' + afterDate + " " + $(this).attr('class') + '</div>' + log.html());
       });
     });
   </script>
