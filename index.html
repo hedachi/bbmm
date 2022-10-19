@@ -1,10 +1,51 @@
 <!DOCTYPE HTML>
-<html lang="en">
+<html lang="ja">
 <head>
   <meta charset="UTF-8">
   <title></title>
   <link href="reset.css" rel="stylesheet" type="text/css"></link>
+  <style>
+    body {
+    }
+    .foot_button {
+      display: inline-block;
+      height: 1000px;
+      width: 33%;
+      border: 1px solid black;
+      text-align: center;
+      line-height: 1000px;
+    }
+    .foot_button.omutu {
+      background-image: url(omutsu.png);
+      background-color: #eef;
+    }
+    .foot_button.milk {
+      background-image: url(baby_honyubin.png);
+      background-color: #fee;
+    }
+    .foot_button.ohuro {
+      background-image: url(ofuro_hinoki.png);
+      background-color: #efe;
+    }
+  </style>
 </head>
 <body>
+  <div class="log">
+
+  </div>
+  <div class="foot_button omutu">
+  </div>
+  <div class="foot_button milk">
+  </div>
+  <div class="foot_button ohuro">
+  </div>
+  <script>
+    document.querySelectorAll('.foot_button').forEach(function (el) {
+      el.addEventListener('click', function () {
+        var log = document.querySelector('.log');
+        log.innerHTML = log.innerHTML + '<div>' + el.className + '</div>';
+      });
+    });
+  </script>
 </body>
 </html>
